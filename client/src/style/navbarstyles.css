@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+::-webkit-scrollbar-track {
+    background-color: #cbd5f0;
+}
+  
+::-webkit-scrollbar-thumb {
+    background-color: #8da8f1;
+    border-radius: 5px;
+}
+
+.main1234{
+    background-color: #070933;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.n_li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+/*HEADER*/
+.n_head{
+    position: relative;
+    padding: 0 2rem;
+    background-color: #070933 ;
+    color: #fff;
+}
+
+.n_navbar{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+.n_navbar .n_logo a{
+    font-size: 2.1rem;
+    font-weight: bold;   
+    font-family: 'Josefin Sans', sans-serif;
+}
+.n_navbar .n_links{
+    display: flex;
+    gap: 2rem;
+    font-family: 'Fredoka', sans-serif;
+}
+
+.n_navbar .n_toggle_btn{
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: none;
+}
+
+.n_action-btn{
+    background-color: #cccfff;
+    color: #000;
+    padding: 9px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale 0.2 ease;
+}
+
+.n_action-btn:hover{
+    scale: 1.05;
+    color: black;
+}
+
+/*DROPDOWN MENU*/
+.n_dropdown_menu{
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    width: 300px;
+    height: 0;
+    background: rgba(255,255,255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.n_dropdown_menu.open{
+    height: 290px;
+}
+
+.n_dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.n_dropdown_menu .n_action-btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/*RESPONSIVE DESIGN*/
+@media(max-width: 992px)
+{
+    .n_navbar .n_links, .n_navbar .n_action-btn{
+        display: none;
+    }
+
+    .n_navbar .n_toggle_btn{
+        display: block;
+    }
+
+    .n_dropdown_menu{
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    .n_dropdown_menu {
+      display: none;
+    }
+  }
+
+@media (max-width: 570px){
+    .n_dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+}
+/*NAVBAR ENDS*/
