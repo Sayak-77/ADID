@@ -44,10 +44,10 @@ const About = () => {
 
     <div className="thebut">
         <div className="boxes">
-            <a href="">Give Feedback</a>
+            <a style={{"textDecoration":"none","color":"white"}} href="">Give Feedback</a>
         </div>
         <div className="boxes">
-            <a href="">Request Project</a>
+            <a style={{"textDecoration":"none","color":"white"}} href="">Request Project</a>
         </div>
     </div>
 
@@ -121,7 +121,7 @@ const About = () => {
         </div>
         <div className="cards">
             <div className="profilepic">
-                <img className="circular-image" src={require("../img/sayak.jpeg")} alt=""/>
+                <img className="circular-image" src={require("../img/sayak.jpg")} alt=""/>
             </div>
             <div className="profilecontent">
                 <div className="name">
@@ -177,7 +177,7 @@ const About = () => {
         </div>
         <div style={{"text-align": "center","padding": "10px","font-size":"21px", "background-color": "#28282b",
         "color": "white","font-family": "Times New Roman","font-style":"italic",}}>
-            <p>&copy; 2023 FoolishDevelopers@node. All rights reserved.</p>
+            <p style={{"marginBottom":"0"}}>&copy; 2023 FoolishDevelopers@node. All rights reserved.</p>
         </div>
     </div>
   )

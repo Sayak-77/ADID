@@ -40,9 +40,10 @@ function Navbar() {
       <div className='n_navbar'>
         <div className="n_logo"><Link  className='link no-hover' to="/"><FontAwesomeIcon icon={faMask} style={{fontSize:"2rem"}} className={stopspin?'':"fa-beat-fade"}/><span></span>&nbsp;&nbsp;ADID</Link></div>
         <ul className='n_links'>
-          <li className="n_li"><Link className='link no-hover' to="/">Home</Link></li>
-          <li className="n_li"><Link  className='link no-hover' to="/about">About Us</Link></li>
+          <li className="n_li"><Link  className='link no-hover' to="/">Home</Link></li>
           <li className="n_li"><Link  className='link no-hover' to="/dashboard">Dashboard</Link></li>
+          <li className="n_li"><Link  className='link no-hover' to="/about">About Us</Link></li>
+          <li className="n_li"><Link  className='link no-hover' to="/user">User</Link></li>
         </ul>
         <button onClick={handleLogout} className='n_action-btn'>Get Started</button>
         <div className="n_toggle_btn" onClick={toggleMenu}>
@@ -50,8 +51,10 @@ function Navbar() {
         </div>
       </div>
       <div className="n_dropdown_menu open" style={{ display: menuOpen ? "block" : "none" }}>
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/about'>About Us</Link></li>
+          <li><Link className='link no-hover' to='/'>Home</Link></li>
+          <li><Link className='link no-hover' to='/dashboard'>Dashboard</Link></li>
+          <li><Link className='link no-hover' to='/about'>About Us</Link></li>
+          <li><Link className='link no-hover' to='/user'>User</Link></li>
           <li><button onClick={handleLogout} className='n_action-btn'>Get Started</button></li>
       </div>
     </nav>

@@ -1,0 +1,109 @@
+.profile_dash{
+    background-color: rgba(99, 99, 252,0.5);
+    margin: 30px auto 30px auto;
+    width: 70%;
+    padding: 30px 30px 10px 30px;
+    border-radius: 30px;
+    display: flex;
+    border: 3px solid #313d5a;
+    justify-content: center;
+}
+
+.profile_picture img{
+    width: 100%; /* Make the image fill the container */
+    height: 100%; /* Make the image fill the container */
+    object-fit: cover; /* Crop the image to cover the entire container */
+    border-radius: 50%; /* Maintain a circular shape for the image */
+}
+
+.profile_picture{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 50%;
+    overflow: hidden;
+    border-radius: 50%;
+    height: 700px;
+    width: 400px;
+    height: 400px;
+    border: 10px solid white;
+}
+
+.user_information{
+    width: 50%;
+    padding: 30px;
+}
+
+.profile_heading{
+    font-size: 40px;
+    margin-left: 5.7%;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 1000;
+    color: white;
+    letter-spacing: 3px;
+    text-align: left;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.info_tech{
+    padding: 10px 30px 30px 30px;
+}
+
+.info_name{
+    font-size: 25px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.info_value{
+    font-size: 18px;
+    background-color: rgba(252, 252, 252, 0.5);
+    border-radius: 20px;
+    padding: 10px 20px 10px 20px;
+    font-family: 'Nunito', sans-serif;
+    font-style: italic;
+}
+
+.info_value:hover{
+    transform: scale(1.01);
+    cursor: pointer;
+    background-color: rgba(252, 252, 252, 0.7);
+    transition: all 0.8s ease-in-out;
+}
+
+.link_button{
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(99, 99, 252,0.8);
+    margin-bottom: 20px;
+    margin-top: 40px;
+    border-radius: 10px;
+    font-size: 25px;
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.link_button:hover{
+    transform: scale(1.1);
+    box-shadow: 10px 10px #313D5A;
+    transition: all 0.7s ease-in-out;
+}
+
+.linkcontainer{
+    padding-top: 30px;
+}
+.linkuser.no-hover
+{
+    text-decoration: none;
+    color: white;
+}
+
+/*-----END OF DASHBOARD----------------*/

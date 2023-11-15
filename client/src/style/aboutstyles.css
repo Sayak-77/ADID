@@ -122,7 +122,6 @@
     text-align: center;
     color: white;
 }
-
 .degree{
     padding: 20px;
     font-size: 19px;
@@ -135,6 +134,7 @@
     color: #183642;
     border-radius: 50%;
     margin-right: 7px;
+    cursor: pointer;
 }
 
 .thebut{
@@ -153,6 +153,7 @@
     font-family: 'Fredoka', sans-serif;
     border-radius: 30px;
     font-size: 25px;
+    border: 4px solid whitesmoke;
 }
 
 .boxes:hover{

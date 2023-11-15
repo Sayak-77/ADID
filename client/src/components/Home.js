@@ -253,7 +253,7 @@ const Home = () => {
         </div>
         <div style={{"text-align": "center","padding": "10px","font-size":"21px", "background-color": "#28282b",
         "color": "white","font-family": "Times New Roman","font-style":"italic",}}>
-            <p>&copy; 2023 FoolishDevelopers@node. All rights reserved.</p>
+            <p style={{"marginBottom":"0"}}>&copy; 2023 FoolishDevelopers@node. All rights reserved.</p>
         </div>
 </div>
   )
