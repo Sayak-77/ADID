@@ -1,4 +1,4 @@
-import React, {useEffect,useState,useRef} from 'react'
+import React, {useEffect,useRef} from 'react'
 import '../style/homestyles.css';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Pagination, Navigation } from "swiper/modules";
@@ -10,9 +10,7 @@ import 'boxicons/css/boxicons.min.css';
 import Typed from "typed.js";
 
 const Home = () => {
-        const typedRef = useRef(null);
-      
-        
+        const typedRef = useRef(null);  
         const strings = ["AMIGOS!!!", "DEVELOPERS!!!", "ENTHUSIASTS!!!", "INNOVATORS!!!"];
       
         useEffect(() => {
@@ -36,7 +34,7 @@ const Home = () => {
 <div>
     <div className="landingback">
     <img src={require('../img/back.jpeg')} alt="Landing Page"/>
-        <div className="overlay">
+        <div className="overlayhome">
             <div className="introhead">
                 HOLA&nbsp;&nbsp;<span id='typed-element'></span>
             </div>

@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #ffff;
+}
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.hidden {
+    display: none;
+}
+
+.device_head{
+    font-size: 50px;
+    padding: 30px 30px 30px 0px;
+}
+
+.add_button{
+    font-size: 25px;
+}
+
+.modal-content{
+    background-color: bisque;
+}
+
+.card-whole{
+    padding: 40px;
+}
+
+.card-cont{
+    margin-top: 20px;
+}
+
+.fixed-size-image {
+    object-fit: cover; /* This property ensures the image covers the entire container while maintaining its aspect ratio */
+    width: 100%; /* Ensure the image takes 100% width of its container */
+    height: 150px; /* Set the desired height for the image */
+    /* Adjust the height as needed to fit your layout */
+}

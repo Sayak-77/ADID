@@ -5,15 +5,16 @@
 }
 
 .big{
-	background: #f6f5f7;
+	background: #313D5A;
 	display: flex;
 	align-items: center;
     justify-content: center;
 	flex-direction: column;
 	font-family: 'Montserrat', sans-serif;
-	background-color: white;
-    padding-top: 20px;
-    margin-top: 7%;
+	background-color: #313D5A;
+    padding-top: 10px;
+	padding-bottom: 5%;
+    height: 110%;
 }
 
 .h1 {
@@ -162,9 +163,9 @@ h2 {
 	transform: translateX(-100%);
 }
 
-.overlay {
-	background: -webkit-linear-gradient(to right,#89CFF3,#89CFF3);
-	background: linear-gradient(to right,#D0BFFF,#BEADFA);
+.overlay{
+	background: -webkit-linear-gradient(to right,#313D5A,#313D5A);
+	background: linear-gradient(to right,#3f4f75,#313D5A);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;

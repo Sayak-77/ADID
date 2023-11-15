@@ -14,7 +14,7 @@
 }
 
 .main1234{
-    background-color: #070933;
+    background-color: #313D5A;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -33,7 +33,7 @@ a{
 .n_head{
     position: relative;
     padding: 0 2rem;
-    background-color: #070933 ;
+    background-color: #313D5A ;
     color: #fff;
 }
 
@@ -71,17 +71,22 @@ a{
     padding: 9px;
     border: none;
     outline: none;
-    border-radius: 20px;
-    font-size: 0.8rem;
+    border-radius: 7px;
+    font-size: 1rem;
     font-weight: bold;
+    font-family: 'Nunito',sans-serif;
     cursor: pointer;
-    transition: scale 0.2 ease;
+    transition: 0.5s ease-in-out;
 }
 
-.n_action-btn:hover{
-    scale: 1.05;
+.n_action-btn:hover {
     color: black;
+    transform: translate(0, -10%);
+    transition: 0.5s ease-in-out;
+    box-shadow: 0px 0px 7px rgba(255, 255, 255, 0.808); /* Add a subtle box shadow on hover */
+    background-color: #b3b3ff; /* Change the background color on hover */
 }
+
 
 /*DROPDOWN MENU*/
 .n_dropdown_menu{
@@ -142,5 +147,10 @@ a{
         left: 2rem;
         width: unset;
     }
+}
+.link.no-hover
+{
+    text-decoration: none;
+    color: white;
 }
 /*NAVBAR ENDS*/

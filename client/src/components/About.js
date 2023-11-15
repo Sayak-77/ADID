@@ -1,26 +1,22 @@
-import React, {useEffect,useState,useRef} from 'react'
+import React, {useEffect,useRef} from 'react'
 import '../style/aboutstyles.css';
 import Typed from 'typed.js';
 
 const About = () => {
     const typedRef = useRef(null);
-      
-    // Strings to display
     const strings = ["AMIGOS!!!", "DEVELOPERS!!!", "ENTHUSIASTS!!!", "INNOVATORS!!!"];
   
     useEffect(() => {
-      // Create the Typed instance and store it in the ref
+      
       typedRef.current = new Typed('#typed-element', {
         strings,
-        typeSpeed: 50, // Adjust the typing speed
-        backSpeed: 50, // Adjust the backspacing speed
-        backDelay: 1000, // Adjust the delay before backspacing
+        typeSpeed: 50, 
+        backSpeed: 50, 
+        backDelay: 1000, 
         smartBackspace: true,
         showCursor: false,
         loop: true,
       });
-  
-      // Cleanup: Destroy the Typed instance when the component is unmounted
       return () => {
         if (typedRef.current) {
           typedRef.current.destroy();
@@ -31,7 +27,7 @@ const About = () => {
     <div>
       <div className="landingback">
     <img src={require('../img/back.jpeg')} alt="Landing Page"/>
-        <div className="overlay">
+        <div className="overlayabout">
             <div className="introhead">
                 HOLA&nbsp;&nbsp;<span id='typed-element'></span>
             </div>
