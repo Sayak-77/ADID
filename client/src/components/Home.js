@@ -1,13 +1,14 @@
 import React, {useEffect,useRef} from 'react'
 import '../style/homestyles.css';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, Pagination, Navigation } from "swiper/modules";
+import { EffectFade, Pagination, Navigation, Keyboard, Mousewheel, Autoplay} from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 import 'boxicons/css/boxicons.min.css';
 import Typed from "typed.js";
+import { faL } from '@fortawesome/free-solid-svg-icons';
 
 const Home = () => {
         const typedRef = useRef(null);  
@@ -55,11 +56,25 @@ const Home = () => {
         spaceBetween={30}
         effect={'fade'}
         navigation={true}
-        pagination={{
-          clickable: true,
+        autoplay={{
+            delay:3500,
+            disableOnInteraction:false
         }}
-        modules={[EffectFade, Navigation, Pagination]}
-        className="mySwiper"
+        pagination={{
+            clickable: true,
+            dynamicBullets:true,
+        }}
+        loop={true}
+        style={{
+            "--swiper-pagination-color":"#313d5a",
+            "--swiper-pagination-bullet-inactive-color": "#999999",
+            "--swiper-pagination-bullet-inactive-opacity": "1",
+            "--swiper-pagination-bullet-size": "10px",
+            "--swiper-navigation-color":"#313d5a",
+        }}
+        keyboard={true}
+        mousewheel={true}
+        modules={[EffectFade, Navigation, Pagination, Keyboard, Mousewheel, Autoplay]}
     >
         <SwiperSlide>
                 <div className="featurehead">
@@ -253,7 +268,7 @@ const Home = () => {
         </div>
         <div style={{"text-align": "center","padding": "10px","font-size":"21px", "background-color": "#28282b",
         "color": "white","font-family": "Times New Roman","font-style":"italic",}}>
-            <p style={{"marginBottom":"0"}}>&copy; 2023 FoolishDevelopers@node. All rights reserved.</p>
+            <p>&copy; 2023 FoolishDevelopers@node. All rights reserved.</p>
         </div>
 </div>
   )

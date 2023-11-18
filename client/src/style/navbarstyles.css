@@ -55,7 +55,7 @@ a{
 .n_navbar .n_links{
     display: flex;
     gap: 2rem;
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .n_navbar .n_toggle_btn{
@@ -74,7 +74,7 @@ a{
     border-radius: 7px;
     font-size: 1rem;
     font-weight: bold;
-    font-family: 'Nunito',sans-serif;
+    font-family: 'Ubuntu',sans-serif;
     cursor: pointer;
     transition: 0.5s ease-in-out;
 }

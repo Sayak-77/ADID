@@ -1,63 +1,63 @@
 import React, { useState } from 'react'
 import '../style/loginstyles.css';
-import { ToastContainer, toast, useToast, Flip, Zoom} from 'react-toastify';
+import { ToastContainer, toast,Flip} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
-const [user, setUser] = useState({
-	name: "",email: "", password: ""
-});
-const [auth,setAuth] = useState({
-	lemail:"", lpass:""
-});
+		const [user, setUser] = useState({
+			name: "",email: "", password: ""
+		});
+		const [auth,setAuth] = useState({
+			lemail:"", lpass:""
+		});
 
-const [userEmail, setUserEmail] = useState('');
-const use= useNavigate();
-let name, value;
-const handleInputs = (e) =>{
-	name=e.target.name;
-	value=e.target.value;
+		const [userEmail, setUserEmail] = useState('');
+		const use= useNavigate();
+		let name, value;
+		const handleInputs = (e) =>{
+			name=e.target.name;
+			value=e.target.value;
 
-	setUser({... user, [name]:value});
-}
-const handleSubmit = async (e) =>{
-	e.preventDefault();
-	setUser({name:'',email:'',password:''});
-	const response = await fetch('http://localhost:8080/register',{
-		method: 'POST',
-		body:JSON.stringify(user),
-		headers:{
-			'Content-Type':'application/json'
+			setUser({... user, [name]:value});
 		}
-	})
-	if(response.ok){
-		const data = await response.text();
-		toast.success(data,{
-			position:toast.POSITION.TOP_CENTER,
-			transition:Flip,
-			theme:"dark",
-			className:"message"
-		});
+	const handleSubmit = async (e) =>{
+		e.preventDefault();
+		setUser({name:'',email:'',password:''});
+		const response = await fetch('http://localhost:8080/register',{
+			method: 'POST',
+			body:JSON.stringify(user),
+			headers:{
+				'Content-Type':'application/json'
+			}
+		})
+		if(response.ok){
+			const data = await response.text();
+			toast.success(data,{
+				position:toast.POSITION.TOP_CENTER,
+				transition:Flip,
+				theme:"dark",
+				className:"message"
+			});
+		}
+		else if(response.status==400){
+			const data = await response.text();
+			toast.warning(data,{
+				position:toast.POSITION.TOP_CENTER,
+				transition:Flip,
+				theme:"dark"
+			});
+		}
+		else{
+			const data = await response.text();
+			toast.error(data,{
+				position:toast.POSITION.TOP_CENTER,
+				transition:Flip,
+				theme:"dark"
+			});
+		}
     }
-	else if(response.status==400){
-		const data = await response.text();
-		toast.warning(data,{
-			position:toast.POSITION.TOP_CENTER,
-			transition:Flip,
-			theme:"dark"
-		});
-	}
-	else{
-		const data = await response.text();
-		toast.error(data,{
-			position:toast.POSITION.TOP_CENTER,
-			transition:Flip,
-			theme:"dark"
-		});
-	}
- }
 
 const proceedLogin = async (e) =>{
 	e.preventDefault();
