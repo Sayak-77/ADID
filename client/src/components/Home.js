@@ -8,7 +8,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 import 'boxicons/css/boxicons.min.css';
 import Typed from "typed.js";
-import { faL } from '@fortawesome/free-solid-svg-icons';
 
 const Home = () => {
         const typedRef = useRef(null);  
@@ -71,6 +70,7 @@ const Home = () => {
             "--swiper-pagination-bullet-inactive-opacity": "1",
             "--swiper-pagination-bullet-size": "10px",
             "--swiper-navigation-color":"#313d5a",
+            "--swiper-pagination-bottom": "18px"
         }}
         keyboard={true}
         mousewheel={true}
@@ -95,9 +95,9 @@ const Home = () => {
                     </div>
         </SwiperSlide>
         <SwiperSlide>
-                    <div className="featurehead">
-                        MULTI-DATA SOURCE INTEGRATION
-                    </div>
+                <div className="featurehead">
+                    MULTI-DATA SOURCE INTEGRATION
+                </div>
                     <div className="featurecontent">
                         <ul>
                             <li>
@@ -113,10 +113,10 @@ const Home = () => {
                     </div>
         </SwiperSlide>
         <SwiperSlide>
-                <div class="featurehead">
+                <div className="featurehead">
                     MACHINE LEARNING MODEL CUSTOMIZATION
                 </div>
-                    <div class="featurecontent">
+                    <div className="featurecontent">
                         <ul>
                             <li>
                                 Customization is a powerful feature that empowers users to adapt anomaly detection models to their specific IoT use cases.
@@ -131,10 +131,10 @@ const Home = () => {
                     </div>
         </SwiperSlide>
         <SwiperSlide>
-            <div class="featurehead">
+            <div className="featurehead">
                 SECURITY ASSESSMENT
             </div>
-                    <div class="featurecontent">
+                    <div className="featurecontent">
                         <ul>
                             <li>
                                 Beyond anomaly detection, security assessment features provide an added layer of protection for IoT devices and networks.
@@ -149,10 +149,10 @@ const Home = () => {
                     </div>
         </SwiperSlide>
         <SwiperSlide>
-            <div class="featurehead">
+            <div className="featurehead">
                 PREDICTIVE ANALYTICS
             </div>
-                    <div class="featurecontent">
+                    <div className="featurecontent">
                         <ul>
                             <li>
                                 Predictive analytics takes anomaly detection a step further by forecasting potential anomalies based on historical data trends.
@@ -268,7 +268,7 @@ const Home = () => {
         </div>
         <div style={{"text-align": "center","padding": "10px","font-size":"21px", "background-color": "#28282b",
         "color": "white","font-family": "Times New Roman","font-style":"italic",}}>
-            <p>&copy; 2023 FoolishDevelopers@node. All rights reserved.</p>
+            <p style={{"marginBottom":"0"}}>&copy; 2023 FoolishDevelopers@node. All rights reserved.</p>
         </div>
 </div>
   )

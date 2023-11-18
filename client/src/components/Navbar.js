@@ -12,15 +12,7 @@ function Navbar() {
     navigate('/login');
   }
   const [menuOpen, setMenuOpen] = useState(false);
-  const [stopspin, setstopspin] = useState(false);
 
-  useEffect(()=> {
-    const time=setTimeout(() => {
-        setstopspin(true);
-    }, 20000);
-
-    return () => clearTimeout(time);
-  },[]);
   function toggleMenu() {
     setMenuOpen(!menuOpen);
   }
@@ -38,7 +30,7 @@ function Navbar() {
   return (
     <nav className='n_head'>
       <div className='n_navbar'>
-        <div className="n_logo"><Link  className='link no-hover' to="/"><FontAwesomeIcon icon={faMask} style={{fontSize:"2rem"}} className={stopspin?'':"fa-beat-fade"}/><span></span>&nbsp;&nbsp;ADID</Link></div>
+        <div className="n_logo"><Link  className='link no-hover'><FontAwesomeIcon icon={faMask} style={{fontSize:"1.9rem"}} className="fa-beat-fade"/><span></span>&nbsp;&nbsp;ADID</Link></div>
         <ul className='n_links'>
           <li className="n_li"><Link  className='link no-hover' to="/">Home</Link></li>
           <li className="n_li"><Link  className='link no-hover' to="/dashboard">Dashboard</Link></li>

@@ -1,0 +1,315 @@
+/*=========================INPUT FORM FOR DEVICE READINGS START=============*/
+.inputform
+{
+    background-color: #28afb0;
+    border-radius: 20px;
+    height: 90%;
+    width: 90%;
+    padding: 40px;
+    margin: 30px;
+    box-shadow: 9px 9px #183642;
+}
+
+.maincontent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#anahead{
+    color: white;
+    text-shadow: 7px 7px #37392e;
+    font-family: 'Poppins', sans-serif;
+    font-size: 60px;
+    font-weight: 700;
+    text-align: center;
+}
+
+#subana{
+    font-size: 30px;
+    color: white;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 20px;
+    margin-top: 20px;
+    font-family: 'Nunito', sans-serif;
+    background-color: #313D5A;
+    box-shadow: 4px 4px #ffff;
+}
+
+.rulesformat
+{
+    display: flex;
+}
+
+.ruleshead{
+    text-align: center;
+    padding: 25px;
+    font-family:'Poppins', sans-serif;
+    color: white;
+    font-size: 20px;
+}
+
+.xlimage{
+    text-align: center;
+    padding: 20px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.xlimage img{
+    width: 500px;
+}
+
+#imagedesc{
+    color: white;
+    padding: 10px;
+    font-family:'Poppins', sans-serif;
+}
+
+.keeprules{
+    padding: 20px;
+    font-size: 20px;
+    width: 50%;
+    line-height: 40px;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-style: bold;
+}
+
+.seprate{
+    height: 10px;
+    width: 90px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.sepout{
+    display: flex;
+    justify-content: center;
+}
+
+#uploadhead{
+    color: white;
+    font-size: 40px;
+    font-family:'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+label{
+    padding: 10px;
+    font-size: 22px;
+    padding-left: 0;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+}
+
+input[type="file"] {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-style: bold;
+    font-family:'Poppins', sans-serif;
+}
+
+input[type="number"] {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 69%;
+    margin-top: 20px;
+    font-size: 15px;
+    font-style: bold;
+    font-family:'Poppins', sans-serif;
+}
+
+.uploaddataform{
+    background-color: white;
+    padding: 40px 40px 10px 40px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    border-radius: 30px;
+    box-shadow: 15px 15px #183642;
+}
+
+#sub{
+    font-size: 40px;
+    font-weight: 600;
+    color: black;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+#submitbutton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px 0 20px;
+}
+
+#insidebutton{
+    padding: 12px;
+    border-radius: 10px;
+    border: 0;
+    background-color: rgb(99, 99, 252);
+    color: white;
+    transition: all 0.7s ease-in-out;
+}
+
+#insidebutton:hover{
+    background-color: rgb(56, 56, 255);
+    box-shadow: 5px 5px #183642;
+}
+
+select {
+    padding: 10px;
+    transition: height 0.8s;
+    font-size: 15px;
+    font-family:'Poppins', sans-serif;
+}
+
+.rangebox{
+    display: flex;
+}
+
+.belowrangebox{
+    display: flex;
+}
+
+.uploadthedata{
+    padding: 20px;
+}
+
+.thsiit{
+    width: 50%;
+    overflow: hidden;
+}
+
+/*=========================INPUT FORM FOR DEVICE READINGS END=============*/
+
+/*=========================RESULT START===================================*/
+
+.resultcontent{
+    background-color: #28afb0;
+    padding: 40px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    border-radius: 20px;
+    box-shadow: 9px 9px #183642;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.statistics{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    padding-top: 0;
+}
+
+.midstat{
+    display: flex;
+    justify-content: center
+}
+
+.statbox{
+    /* margin: 30px; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.stathead{
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Nunito', sans-serif;
+    background-color: #313D5A;
+}
+
+.statval{
+    font-size: 25px;
+    color: green;
+    background-color: white;
+    width: 280px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+#attention{
+    color: red;
+}
+
+#lmar{
+    margin-right: 0px;
+}
+
+.resultimage{
+    width: 100%;
+    text-align: center;
+}
+
+.resultimage img{
+    width: 80%;
+    border-radius: 20px;
+    box-shadow: 9px 9px #183642;
+}
+
+.statbox{
+    padding: 20px;
+    border-radius: 20px;
+}
+/*=========================RESULT END=====================================*/
+.bottombar{
+    background-color: #313D5A;
+    margin-top: 50px;
+    padding: 30px;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    align-items: center;
+}
+
+.abouthead{
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.aboutintro{
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    font-size: 20px;
+    width: 50%;
+    padding: 30px;
+}
+
+.sociallinks i{
+    font-size: 30px;
+    padding: 10px;
+    background-color: #cbc5ea;
+    color: #183642;
+    border-radius: 50%;
+    margin-right: 20px;
+    cursor: pointer;
+}

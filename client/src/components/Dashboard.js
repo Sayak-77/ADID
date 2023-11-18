@@ -1,4 +1,5 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState} from 'react'
+import { Link } from 'react-router-dom';
 import '../style/dashstyles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import temp from '../img/temp.jpg';
@@ -7,7 +8,6 @@ import motion from '../img/motion.jpg';
 import pressure from '../img/pressure.jpg';
 import infrared from '../img/infrared.jpg';
 import smoke from '../img/smoke.jpg';
-import Home from './Home';
 
 const Dashboard = () => {
     const [device,setdevice] = useState({
@@ -18,7 +18,7 @@ const Dashboard = () => {
         name=e.target.name;
         value=e.target.value;
 
-        setdevice({... device, [name]:value});
+        setdevice({...device, [name]:value});
     }
     const deviceData = [];
     const addDevice = async(e) => {
@@ -76,7 +76,7 @@ const Dashboard = () => {
             
             const newCard = document.createElement('div');
             newCard.classList.add('col-sm-3', 'card-cont');
-            const ty=<Home/>
+        
             newCard.innerHTML = `
                 <div class="card">
                     <img src="${imagePath}" class="card-img-top fixed-size-image" alt="Image Alt Text">
@@ -87,20 +87,17 @@ const Dashboard = () => {
                         <p class="card-text">File Type: ${device.ftype}</p>
                         <p class="card-text">Date: ${device.date}</p>
                         <p class="card-text">Time: ${device.time}</p>
-                        <a href="${ty}" class="btn btn-primary">Device Dashboard</a>
+                        <a href="/process_data" class="btn btn-primary">Process Data</a>
                     </div>
                 </div>
             `;
             cardContainer.insertBefore(newCard,cardContainer.firstChild);
         }  
     }
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-      }
+    function data()
+    {
+        window.location.href='/process_data';
+    }
   return (
     <div>
         <div className="modal" id="myModal">
@@ -183,8 +180,32 @@ const Dashboard = () => {
         </button>
             <div className="row card-whole">
                 <div className="col-sm-3 card-cont">
+                    <div className="card">
+                        <img src={require('../img/temp.jpg')} className="card-img-top fixed-size-image" alt="Text"/>
+                        <div className="card-body">
+                            <h5 className="card-title">Home Temperature</h5>
+                            <p className="card-text">ID: UHJ907P</p>
+                            <p className="card-text">Type: Temperature</p>
+                            <p className="card-text">File Type: Excel</p>
+                            <p className="card-text">Date: 08/10/2023</p>
+                            <p className="card-text">Time: 11:20:30 AM</p>
+                            <button className="btn btn-primary" onClick={data}>Process Data</button>
+                        </div>
+                    </div>
                 </div>
                 <div className="col-sm-3 card-cont">
+                    <div className="card">
+                        <img src={require('../img/smoke.jpg')} className="card-img-top fixed-size-image" alt="Text"/>
+                        <div className="card-body">
+                            <h5 className="card-title">Smoke Detector</h5>
+                            <p className="card-text">ID: ZXG678P</p>
+                            <p className="card-text">Type: Smoke</p>
+                            <p className="card-text">File Type: CSV</p>
+                            <p className="card-text">Date: 02/23/2023</p>
+                            <p className="card-text">Time: 1:45:15 PM</p>
+                            <button className="btn btn-primary" onClick={data}>Process Data</button>
+                        </div>
+                    </div>
                 </div>
             </div>
     </div>      

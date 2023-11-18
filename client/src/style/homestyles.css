@@ -110,7 +110,6 @@ body{
     border-radius: 20px;
     border: 5px solid #313d5a;
 }
-
 .swiper-slide img {
     display: block;
     width: 100%;
@@ -195,7 +194,7 @@ body{
     padding: 20px 30px 20px 30px;
     border-radius: 50%;
     border-style: solid;
-    border:5px solid whitesmoke;
+    border:5px solid #cbc5ea;
     color: white;
     line-height: 1.15;
 }
@@ -215,10 +214,10 @@ body{
     font-family: 'Nunito', sans-serif;
     height: 90px;
     padding: 20px;
-    background-color: #F8F8FF; 
+    background-color: #cbc5ea;
     border-radius: 20px;
+    line-height: 22px;
     font-size: 19px;
-    border: 3px solid #313d5a;
     margin: 15px;
 }
 /*=========================IMPORTANCE END================================*/

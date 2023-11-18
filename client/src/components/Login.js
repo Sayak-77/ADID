@@ -13,14 +13,14 @@ const Login = () => {
 			lemail:"", lpass:""
 		});
 
-		const [userEmail, setUserEmail] = useState('');
-		const use= useNavigate();
+		// const [userEmail, setUserEmail] = useState('');
+		// const use= useNavigate();
 		let name, value;
 		const handleInputs = (e) =>{
 			name=e.target.name;
 			value=e.target.value;
 
-			setUser({... user, [name]:value});
+			setUser({...user, [name]:value});
 		}
 	const handleSubmit = async (e) =>{
 		e.preventDefault();
@@ -41,7 +41,7 @@ const Login = () => {
 				className:"message"
 			});
 		}
-		else if(response.status==400){
+		else if(response.status===400){
 			const data = await response.text();
 			toast.warning(data,{
 				position:toast.POSITION.TOP_CENTER,
@@ -81,7 +81,7 @@ const proceedLogin = async (e) =>{
 	// 	use('/myprofile');
 	// },2500);
     }
-	else if(response.status==400){
+	else if(response.status===400){
 		const data = await response.text();
 		toast.error(data,{
 			position:toast.POSITION.TOP_CENTER,
@@ -103,7 +103,7 @@ const proceedLogin = async (e) =>{
 	lname=e.target.name;
 	lvalue=e.target.value;
 
-	setAuth({... auth, [lname]:lvalue});
+	setAuth({...auth, [lname]:lvalue});
 }
 
   return (
@@ -117,9 +117,9 @@ const proceedLogin = async (e) =>{
 		<form className="fo1" action="#" onSubmit={handleSubmit}>
 			<h1 className="h1">Create Account</h1>
 			<div className="social-container">
-				<a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
-				<a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
-				<a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
+				<a className="social"><i className="fab fa-facebook-f"></i></a>
+				<a className="social"><i className="fab fa-google-plus-g"></i></a>
+				<a className="social"><i className="fab fa-linkedin-in"></i></a>
 			</div>
 			<span className="sp">or use your email for registration</span>
 			<input className='inp1' name="name" id="name" autoComplete="off" pattern="[^0-9]*" title="Name cannot contain numerics" type="text" placeholder="Name" value={user.name} onChange={handleInputs} required/>
@@ -132,14 +132,14 @@ const proceedLogin = async (e) =>{
 		<form className="fo1" action="#" onSubmit={proceedLogin}>
 			<h1 className="h1">Sign in</h1>
 			<div className="social-container">
-				<a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
-				<a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
-				<a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
+				<a className="social"><i className="fab fa-facebook-f"></i></a>
+				<a className="social"><i className="fab fa-google-plus-g"></i></a>
+				<a className="social"><i className="fab fa-linkedin-in"></i></a>
 			</div>
 			<span className="sp">or use your account</span>
 			<input className='inp1' name="lemail" autoComplete="off" value={auth.lemail} onChange={handleLogin} type="email" placeholder="Email" required/>
 			<input className='inp1' name="lpass" value={auth.lpass} onChange={handleLogin} type="password" placeholder="Password" required/>
-			<a id="done" href="#"><u>Forgot your password</u> ?</a>
+			<a id="done"><u>Forgot your password</u> ?</a>
 			<button className="page" style={{marginTop:16}}>Sign In</button>
 		</form>
 	</div>
