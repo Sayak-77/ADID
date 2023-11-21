@@ -1,22 +1,75 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import '../style/processdatastyles.css'
+
 const ProcessData = () => {
+    const [file, setFile] = useState(null);
+    const [lower, setlower] = useState('');
+    const [upper, setupper] = useState('');
+    const [attention, setattention] = useState('');
+    const [data, setdata] = useState(null);
+
+    const[condition,setcondition]=useState(false);
+
+    const handleFileChange = (e) => {
+        setFile(e.target.files[0]);
+      };
+    function clicklower(e){
+        setlower(e.target.value)
+    }
+    function clickupper(e){
+        setupper(e.target.value)
+    }
+    function clickpercent(e){
+        setattention(e.target.value)
+    }
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const formData= new FormData();
+        formData.append('csv_file', file);
+        formData.append('lower', lower);
+        formData.append('upper', upper);
+        formData.append('attention', attention);
+
+        try {
+          const response = await fetch('http://localhost:5000/iotapi/detect_anomalies', {  
+            method: 'POST',
+            body: formData
+          });
+    
+          if (response.ok) {
+            const result = await response.json();
+            console.log(result)
+            setdata(result)
+          } else {
+            console.error(`Error: ${response.status} - ${response.statusText}`);
+          }
+        } catch (error) {
+          console.error('Error sending the request:', error);
+        }
+      };
+      useEffect(()=>{
+        if(data && data.image_path)
+        {setcondition(true);}
+        else
+        {setcondition(false);}
+    },[data])
   return (
     <div>
-            <div class="maincontent">
-        <div class="inputform">
+            <div className="maincontent">
+        <div className="inputform">
             <h1 id="anahead">DEVICE DASHBOARD</h1>
             <p id="subana">Device Name: Temperature Sensor 10034</p>
-            <div class="ruleshead">
+            <div className="ruleshead">
                 <h1>"Specifications To Keep In Mind"</h1>
             </div>
             
-            <div class="rulesformat">
-                <div class="xlimage">
+            <div className="rulesformat">
+                <div className="xlimage">
                     <img src={require('../img/format.jpeg')} alt="Specified format"/>
                     <h4 id="imagedesc">Format of data inside the document should be as above</h4>
                 </div>
-                <div class="keeprules">
+                <div className="keeprules">
                     <ul>
                         <li>
                             The file format should be either <i><b>.csv</b></i> or <i><b>.xlsx</b></i>
@@ -38,41 +91,41 @@ const ProcessData = () => {
                     </ul>
                 </div>
             </div>
-            <div class="sepout">
-                <div class="seprate">
+            <div className="sepout">
+                <div className="seprate">
                 </div>
             </div>
-            <div class="uploaddataform">
+            <div className="uploaddataform">
                 <h1 id="sub">Upload Data</h1>
-                <form action="process_data.php" method="post" enctype="multipart/form-data">
+                <form onSubmit={handleSubmit}>
                     <div>
-                        <label for="dataFile">Upload Device Data:</label><br/><br/>
-                        <input class="uploadthedata" type="file" id="dataFile" name="dataFile"/>
+                        <label htmlFor="dataFile">Upload Device Data:</label><br/><br/>
+                        <input className="uploadthedata" type="file" id="dataFile" name="dataFile" onChange={handleFileChange}/>
                     </div>
                     <div>
                         <br/><label>Select Data Type:</label>
                         <input type="radio" id="numeric" name="dataType" value="numeric"/>
-                        <label for="numeric">Numeric</label>
+                        <label htmlFor="numeric">Numeric</label>
                         <input type="radio" id="boolean" name="dataType" value="boolean"/>
-                        <label for="boolean">Boolean</label><br/>
+                        <label htmlFor="boolean">Boolean</label><br/>
                     </div>
-                    <div class="rangebox">
-                        <div class="thsiit">
-                            <br/><br/><label for="acceptablePercentage">Enter Maximum Value:</label>
-                            <input type="number" id="acceptablePercentage" name="acceptablePercentage" step="any"/>
+                    <div className="rangebox">
+                        <div className="thsiit">
+                            <br/><br/><label htmlFor="acceptablePercentage1">Enter Maximum Value:</label>
+                            <input type="number" id="acceptablePercentage1" name="acceptablePercentage1" step="any" value={upper} onChange={clickupper}/>
                         </div>
-                        <div class="thsiit">
-                            <br/><br/><label for="acceptablePercentage">Enter Minimum Value:</label>
-                            <input type="number" id="acceptablePercentage" name="acceptablePercentage" step="any"/>
+                        <div className="thsiit">
+                            <br/><br/><label htmlFor="acceptablePercentage2">Enter Minimum Value:</label>
+                            <input type="number" id="acceptablePercentage2" name="acceptablePercentage2" step="any" value={lower} onChange={clicklower}/>
                         </div>
                     </div>
-                    <div class="belowrangebox">
-                        <div class="thsiit">
-                            <br/><br/><label for="acceptablePercentage">Enter acceptable percentage:</label>
-                            <input type="number" id="acceptablePercentage" name="acceptablePercentage" step="any"/>
+                    <div className="belowrangebox">
+                        <div className="thsiit">
+                            <br/><br/><label htmlFor="acceptablePercentage3">Enter acceptable percentage:</label>
+                            <input type="number" id="acceptablePercentage3" name="acceptablePercentage3" value={attention} onChange={clickpercent} step="any"/>
                         </div>
-                        <div class="thsiit">
-                            <br/><br/><label for="fileType">Select File Type:</label><br/><br/>
+                        <div className="thsiit">
+                            <br/><br/><label htmlFor="fileType">Select File Type:</label><br/><br/>
                             <select id="fileType" name="fileType">
                                 <option id="theopt" value="xlsx">XLSX (Microsoft Excel Open XML Spreadsheet)</option>
                                 <option id="theopt" value="csv">CSV (Comma Separated Values) </option>
@@ -89,46 +142,54 @@ const ProcessData = () => {
         </div>
     </div>
 
-    <div class="resultcontent">
+    <div className="resultcontent">
         <h1 id="anahead">PROCESSING RESULTS</h1>
-        <div class="statistics">
-            <div class="midstat">
-                <div class="statbox">
-                    <div class="stathead">
+        <div className="statistics">
+            <div className="midstat">
+                <div className="statbox">
+                    <div className="stathead">
                         Total Number of Readings
                     </div>
-                    <div class="statval">
-                        10000
+                    {data && (
+                    <div className="statval">
+                        {data.total_readings}
                     </div>
+                    )}
                 </div>
-                <div class="statbox">
-                    <div class="stathead">
+                <div className="statbox">
+                    <div className="stathead">
                         Total Number of Anomalies
                     </div>
-                    <div class="statval">
-                        278
+                    {data && (
+                    <div className="statval">
+                        {data.total_anomalies}
                     </div>
+                    )}
                 </div>
-                <div class="statbox">
-                    <div class="stathead">
+                <div className="statbox">
+                    <div className="stathead">
                         Percentage of Anomalies 
                     </div>
-                    <div class="statval">
-                        0.7 %
+                    {data && (
+                    <div className="statval">
+                        {data.percentage_anomalies}
                     </div>
+                    )}
                 </div>
-                <div id="lmar" class="statbox">
-                    <div class="stathead">
+                <div id="lmar" className="statbox">
+                    <div className="stathead">
                         Device Status
                     </div>
-                    <div id="attention" class="statval">
-                        Requires Attention
+                    {data && (
+                    <div id="attention" className="statval">
+                        {data.feedback}
                     </div>
+                    )}
                 </div>
             </div>
         </div>
-        <div class="resultimage">
-            <img src={require('../img/result.jpeg')} alt="Your Result"/>
+        <div className="resultimage">
+            <img src={condition?require('../img/anomaly_plot.png'):require('../img/result.png')} alt="Your Result"/>
         </div>
     </div>
     <div className="bottombar">
@@ -146,8 +207,8 @@ const ProcessData = () => {
                 <i className='bx bxl-twitter' ></i>
             </div>
         </div>
-        <div style={{"text-align": "center","padding": "10px","font-size":"21px", "background-color": "#28282b",
-        "color": "white","font-family": "Times New Roman","font-style":"italic",}}>
+        <div style={{"textAlign": "center","padding": "10px","fontSize":"21px", backgroundColor: "#28282b",
+        "color": "white",fontFamily: "Times New Roman",fontStyle:"italic",}}>
             <p style={{"marginBottom":"0"}}>&copy; 2023 FoolishDevelopers@node. All rights reserved.</p>
         </div>
     </div>

@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import { Link } from 'react-router-dom';
 import '../style/dashstyles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import temp from '../img/temp.jpg';
@@ -180,7 +179,7 @@ const Dashboard = () => {
         </button>
             <div className="row card-whole">
                 <div className="col-sm-3 card-cont">
-                    <div className="card">
+                    <div className="card" id="edit">
                         <img src={require('../img/temp.jpg')} className="card-img-top fixed-size-image" alt="Text"/>
                         <div className="card-body">
                             <h5 className="card-title">Home Temperature</h5>

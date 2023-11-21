@@ -57,10 +57,10 @@ const User = () => {
             </div>
         </div>
     </div>
-    <div style={{"text-align": "center","padding": "12px","font-size":"21px", "background-color": "#28282b",
-        "color": "white","font-family": "Times New Roman","font-style":"italic"}}>
-        <p style={{"marginBottom":"0"}}>&copy; 2023 FoolishDevelopers@node. All rights reserved.</p>
-    </div>
+    <div style={{"textAlign": "center","padding": "10px","fontSize":"21px", backgroundColor: "#28282b",
+        "color": "white",fontFamily: "Times New Roman",fontStyle:"italic",}}>
+            <p style={{"marginBottom":"0"}}>&copy; 2023 FoolishDevelopers@node. All rights reserved.</p>
+        </div>
 </div>
   )
 }
