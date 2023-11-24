@@ -45,7 +45,7 @@ const Dashboard = () => {
         window.$('#myModal').modal('hide'); 
     };
     function updateDeviceCards() {
-        const cardContainer = document.querySelector('.card-whole');
+        const cardContainer = document.querySelector('.whole_card');
 
         for (let i = deviceData.length - 1; i >= 0; i--) {
             const device = deviceData[i];
@@ -74,19 +74,19 @@ const Dashboard = () => {
                 }
             
             const newCard = document.createElement('div');
-            newCard.classList.add('col-sm-3', 'card-cont');
+            newCard.classList.add('device_card');
         
             newCard.innerHTML = `
-                <div class="card">
+                <div>
                     <img src="${imagePath}" class="card-img-top fixed-size-image" alt="Image Alt Text">
-                    <div class="card-body">
-                        <h5 class="card-title">${device.name}</h5>
-                        <p class="card-text">ID: ${device.id}</p>
-                        <p class="card-text">Type: ${device.type}</p>
-                        <p class="card-text">File Type: ${device.ftype}</p>
-                        <p class="card-text">Date: ${device.date}</p>
-                        <p class="card-text">Time: ${device.time}</p>
-                        <a href="/process_data" class="btn btn-primary">Process Data</a>
+                    <div class="card_body">
+                        <h5 class="card_title">${device.name}</h5>
+                        <p class="card_text">ID: ${device.id}</p>
+                        <p class="card_text">Type: ${device.type}</p>
+                        <p class="card_text">File Type: ${device.ftype}</p>
+                        <p class="card_text">Date: ${device.date}</p>
+                        <p class="card_text">Time: ${device.time}</p>
+                        <a href="/process_data"><button class="dashboard_button">Process Data</button></a>
                     </div>
                 </div>
             `;
@@ -96,6 +96,9 @@ const Dashboard = () => {
     function data()
     {
         window.location.href='/process_data';
+    }
+    function handleid(){
+        localStorage.setItem('info',JSON.stringify({id: device.id,name:device.name}));
     }
   return (
     <div>
@@ -117,6 +120,7 @@ const Dashboard = () => {
                     id="deviceName"
                     value={device.name}
                     onChange={handleDevice}
+                    required
                 />
             </div>
             <div className="form-group">
@@ -128,6 +132,7 @@ const Dashboard = () => {
                     id="deviceID"
                     value={device.id}
                     onChange={handleDevice}
+                    required
                 />
             </div>
             <div className="form-group">
@@ -138,6 +143,7 @@ const Dashboard = () => {
                     id="deviceType"
                     value={device.type}
                     onChange={handleDevice}
+                    required
                 >
                     <option value="Temperature">Temperature</option>
                     <option value="Humidity">Humidity</option>
@@ -155,12 +161,13 @@ const Dashboard = () => {
                     id="fileType"
                     value={device.ftype}
                     onChange={handleDevice}
+                    required
                 >
                     <option value="Excel">Excel</option>
                     <option value="CSV">CSV</option>
                 </select>
             </div>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary" onClick={handleid}>
                 Add
             </button>
         </form>
@@ -172,43 +179,39 @@ const Dashboard = () => {
         </div>
     </div>
 
-    <div className="container">
+    <div className="device_container">
         <h2 className="device_head">DEVICE DIRECTORY</h2>
-        <button type="button" className="btn btn-info add_button" data-toggle="modal" data-target="#myModal">
+        <button type="button" className="add_button" data-toggle="modal" data-target="#myModal">
             Add New Device
         </button>
-            <div className="row card-whole">
-                <div className="col-sm-3 card-cont">
-                    <div className="card" id="edit">
+            <div className="whole_card">
+                <div className="device_card">
                         <img src={require('../img/temp.jpg')} className="card-img-top fixed-size-image" alt="Text"/>
-                        <div className="card-body">
-                            <h5 className="card-title">Home Temperature</h5>
-                            <p className="card-text">ID: UHJ907P</p>
-                            <p className="card-text">Type: Temperature</p>
-                            <p className="card-text">File Type: Excel</p>
-                            <p className="card-text">Date: 08/10/2023</p>
-                            <p className="card-text">Time: 11:20:30 AM</p>
-                            <button className="btn btn-primary" onClick={data}>Process Data</button>
+                        <div className="card_body">
+                            <h5 className="card_title">Home Temperature</h5>
+                            <p className="card_text">ID: UHJ907P</p>
+                            <p className="card_text">Type: Temperature</p>
+                            <p className="card_text">File Type: Excel</p>
+                            <p className="card_text">Date: 08/10/2023</p>
+                            <p className="card_text">Time: 11:20:30 AM</p>
+                            <button className="dashboard_button" onClick={data}>Process Data</button>
                         </div>
                     </div>
-                </div>
-                <div className="col-sm-3 card-cont">
-                    <div className="card">
+                <div className="device_card">
                         <img src={require('../img/smoke.jpg')} className="card-img-top fixed-size-image" alt="Text"/>
-                        <div className="card-body">
-                            <h5 className="card-title">Smoke Detector</h5>
-                            <p className="card-text">ID: ZXG678P</p>
-                            <p className="card-text">Type: Smoke</p>
-                            <p className="card-text">File Type: CSV</p>
-                            <p className="card-text">Date: 02/23/2023</p>
-                            <p className="card-text">Time: 1:45:15 PM</p>
-                            <button className="btn btn-primary" onClick={data}>Process Data</button>
+                        <div className="card_body">
+                            <h5 className="card_title">Smoke Detector</h5>
+                            <p className="card_text">ID: ZXG678P</p>
+                            <p className="card_text">Type: Smoke</p>
+                            <p className="card_text">File Type: CSV</p>
+                            <p className="card_text">Date: 02/23/2023</p>
+                            <p className="card_text">Time: 1:45:15 PM</p>
+                            <button className="dashboard_button" onClick={data}>Process Data</button>
                         </div>
                     </div>
                 </div>
-            </div>
-    </div>      
-</div>
+           </div>      
+    </div>
   )
 }
 

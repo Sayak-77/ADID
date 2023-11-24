@@ -10,6 +10,8 @@ const ProcessData = () => {
 
     const[condition,setcondition]=useState(false);
 
+    const info=JSON.parse(localStorage.getItem('info'));
+    console.log(info)
     const handleFileChange = (e) => {
         setFile(e.target.files[0]);
       };
@@ -59,7 +61,7 @@ const ProcessData = () => {
             <div className="maincontent">
         <div className="inputform">
             <h1 id="anahead">DEVICE DASHBOARD</h1>
-            <p id="subana">Device Name: Temperature Sensor 10034</p>
+            <p id="subana">Device Name: {info.name}_{info.id}</p>
             <div className="ruleshead">
                 <h1>"Specifications To Keep In Mind"</h1>
             </div>
