@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard';
 import User from './components/User';
 import ProcessData from './components/ProcessData';
 import { Route, Routes } from 'react-router-dom';
+import ModalForm from './components/ModalForm';
 import './App.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Route path='/dashboard' element={<Dashboard/>}/>
       <Route path='/user' element={<User/>}/>
       <Route path='/process_data' element={<ProcessData/>}/>
+      <Route path='/modalform' element={<ModalForm/>}/>
       </Routes>
     </div>
   );

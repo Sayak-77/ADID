@@ -44,10 +44,10 @@ const About = () => {
 
     <div className="thebut">
         <div className="boxes">
-            <a style={{"textDecoration":"none"}}>Give Feedback</a>
+            <a style={{"textDecoration":"none","cursor":"pointer"}}>Give Feedback</a>
         </div>
         <div className="boxes">
-            <a style={{"textDecoration":"none"}}>Request Project</a>
+            <a style={{"textDecoration":"none","cursor":"pointer"}}>Request Project</a>
         </div>
     </div>
 

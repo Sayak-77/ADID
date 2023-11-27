@@ -14,7 +14,7 @@ const Login = () => {
 		});
 
 		// const [userEmail, setUserEmail] = useState('');
-		// const use= useNavigate();
+		const use= useNavigate();
 		let name, value;
 		const handleInputs = (e) =>{
 			name=e.target.name;
@@ -34,11 +34,12 @@ const Login = () => {
 		})
 		if(response.ok){
 			const data = await response.text();
+			localStorage.setItem('help',JSON.stringify({name:user.name,email:user.email}));
 			toast.success(data,{
 				position:toast.POSITION.TOP_CENTER,
 				transition:Flip,
 				theme:"dark",
-				className:"message"
+				style:{width:"155%",right:"30%"}
 			});
 		}
 		else if(response.status===400){
@@ -71,15 +72,14 @@ const proceedLogin = async (e) =>{
 	})
 	if(response.ok){
 		const data = await response.text();
-		localStorage.setItem('help',JSON.stringify({email: auth.lemail}));
 		toast.success(data,{
 				position:toast.POSITION.TOP_CENTER,
 				transition:Flip,
 				theme:"dark"
 	});
-	// setTimeout(()=>{
-	// 	use('/myprofile');
-	// },2500);
+	setTimeout(()=>{
+		use('/modalform');
+	},4500);
     }
 	else if(response.status===400){
 		const data = await response.text();
@@ -122,7 +122,7 @@ const proceedLogin = async (e) =>{
 				<a className="social"><i className="fab fa-linkedin-in"></i></a>
 			</div>
 			<span className="sp">or use your email for registration</span>
-			<input className='inp1' name="name" id="name" autoComplete="off" pattern="[^0-9]*" title="Name cannot contain numerics" type="text" placeholder="Name" value={user.name} onChange={handleInputs} required/>
+			<input className='inp1' name="name" id="name" autoComplete="off" pattern="[^0-9]*" title="Name cannot contain numerics" type="text" placeholder="Enter Full Name" value={user.name} onChange={handleInputs} required/>
 			<input className='inp1' name="email" id="email" autoComplete="off" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Lowercase Required with 2 letters after ." type="email" placeholder="Email" value={user.email} onChange={handleInputs} required/>
 			<input className='inp1'  name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Requires a length of 8 and atleast One Lowercase, One Uppercase & One number." id="password" autoComplete="off" type="password" placeholder="Password" value={user.password} onChange={handleInputs} required/>
 			<button className="page" style={{marginTop:16}}>Sign Up</button>

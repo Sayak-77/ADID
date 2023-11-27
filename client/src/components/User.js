@@ -3,6 +3,8 @@ import '../style/userstyles.css';
 import {Link} from 'react-router-dom';
 
 const User = () => {
+    const help=JSON.parse(localStorage.getItem('help'));
+    const raw =JSON.parse(localStorage.getItem('raw'));
   return (
     <div>
         <div className="profile_dash">
@@ -25,34 +27,34 @@ const User = () => {
             </div>
             <div className="info_tech">
                 <div className="info_name">
+                    UserName: 
+                </div>
+                <div className="info_value">
+                    {raw.username}
+                </div>
+                <div className="info_name">
                     Name: 
                 </div>
                 <div className="info_value">
-                    Gojo Saturou
+                    {help.name}
                 </div>
                 <div className="info_name">
                     Email: 
                 </div>
                 <div className="info_value">
-                    gojosatoru.infinitepurple@gmail.com
+                    {help.email}
                 </div>
                 <div className="info_name">
                     Phone Number: 
                 </div>
                 <div className="info_value">
-                    +91 3393949322
+                    +91 {raw.mobile}
                 </div>
                 <div className="info_name">
                     Institution: 
                 </div>
                 <div className="info_value">
-                    Tokyo Jujutusu High
-                </div>
-                <div className="info_name">
-                    Position: 
-                </div>
-                <div className="info_value">
-                    Special Grade Sorcerer
+                    {raw.institute}
                 </div>
             </div>
         </div>
