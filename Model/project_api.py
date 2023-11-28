@@ -19,10 +19,18 @@ def detect_anomalies():
     upper_bound = float(request.form.get('upper'))
     csv_file = request.files['csv_file']
     attention = float(request.form.get('attention'))
+    ftype = request.form.get('ftype')
+
+    print(ftype)
+
+    if ftype=='xlsx':
+        data = pd.read_excel(csv_file,engine='openpyxl')
+    else:
+        data = pd.read_csv(csv_file)
     
-    data = pd.read_excel(csv_file,engine='openpyxl')
     
-    readings = data['temp']
+    
+    readings = data['values']
     total_len = len(readings)
 
     # Identify anomalies based on the user-defined range 
@@ -50,10 +58,12 @@ def detect_anomalies():
     feedback = ''
     if attention < percentage_anomalies:
         feedback="Requires Attention"
-    elif attention-5 < percentage_anomalies:
-        feedback="Needs Maintainence"
-    else:
+    elif attention-5 > percentage_anomalies:
         feedback="Stable"
+    else:
+        feedback="Requires Maintenance"
+
+   
 
     # # Plot a scatter plot to visualize the IoT device readings and outliers
     plt.figure(figsize=(12, 6))

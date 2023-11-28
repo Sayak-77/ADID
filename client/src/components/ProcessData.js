@@ -5,6 +5,7 @@ const ProcessData = () => {
     const [file, setFile] = useState(null);
     const [lower, setlower] = useState('');
     const [upper, setupper] = useState('');
+    const [fileType, setFileType] = useState('');
     const [attention, setattention] = useState('');
     const [data, setdata] = useState(null);
 
@@ -24,6 +25,10 @@ const ProcessData = () => {
     function clickpercent(e){
         setattention(e.target.value)
     }
+    function clickfType(e)
+    {
+        setFileType(e.target.value)
+    }
       const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -32,6 +37,7 @@ const ProcessData = () => {
         formData.append('lower', lower);
         formData.append('upper', upper);
         formData.append('attention', attention);
+        formData.append('ftype', fileType)
 
         try {
           const response = await fetch('http://localhost:5000/iotapi/detect_anomalies', {  
@@ -128,7 +134,7 @@ const ProcessData = () => {
                         </div>
                         <div className="thsiit">
                             <br/><br/><label htmlFor="fileType">Select File Type:</label><br/><br/>
-                            <select id="fileType" name="fileType">
+                            <select id="fileType" name="fileType" value={fileType} onChange={clickfType}>
                                 <option id="theopt" value="xlsx">XLSX (Microsoft Excel Open XML Spreadsheet)</option>
                                 <option id="theopt" value="csv">CSV (Comma Separated Values) </option>
                             </select>
@@ -183,7 +189,7 @@ const ProcessData = () => {
                         Device Status
                     </div>
                     {data && (
-                    <div id="attention" className="statval">
+                    <div id="attention" className="statval" style={{"color": `${data.feedback === "Stable" ? 'green' : data.feedback==="Requires Attention" ? 'red':'orange'}`}}>
                         {data.feedback}
                     </div>
                     )}

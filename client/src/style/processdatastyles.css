@@ -248,7 +248,7 @@ select {
 
 .statval{
     font-size: 25px;
-    color: green;
+    color: black;
     background-color: white;
     width: 280px;
     padding: 10px;
@@ -256,7 +256,7 @@ select {
 }
 
 #attention{
-    color: red;
+    color: yellow;
 }
 
 #lmar{
