@@ -44,10 +44,10 @@ const About = () => {
 
     <div className="thebut">
         <div className="boxes">
-            <a style={{"textDecoration":"none","cursor":"pointer"}}>Give Feedback</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScYq2azb33lB6JdgZ-XGDddeYnAS26VaiLoyBv_Nqq8jdlPbQ/viewform?usp=sf_link" style={{"textDecoration":"none","cursor":"pointer", color:"white"}}>Give Feedback</a>
         </div>
         <div className="boxes">
-            <a style={{"textDecoration":"none","cursor":"pointer"}}>Request Project</a>
+            <a href='https://docs.google.com/forms/d/e/1FAIpQLSdQbMtqOiAOjiOxSiNkQll49wnDz8D1p0zm6P6U-qU8UTO5QA/viewform?usp=sf_link' style={{"textDecoration":"none","cursor":"pointer",color:"white"}}>Request Project</a>
         </div>
     </div>
 
