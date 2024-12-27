@@ -100,7 +100,7 @@ const proceedLogin = async (e) =>{
  }
  let lname,lvalue;
  const handleLogin = (e) =>{
-	lname=e.target.name;
+	lname=e.target.value;
 	lvalue=e.target.value;
 
 	setAuth({...auth, [lname]:lvalue});
