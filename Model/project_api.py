@@ -4,6 +4,8 @@ import numpy as np
 from sklearn.cluster import DBSCAN
 import matplotlib
 matplotlib.use("Agg")
+import os
+
 
 import matplotlib.pyplot as plt
 from flask_cors import CORS, cross_origin
@@ -26,11 +28,11 @@ def detect_anomalies():
     if ftype=='xlsx':
         data = pd.read_excel(csv_file,engine='openpyxl')
     else:
-        data = pd.read_csv(csv_file)
+        data = pd.read_csv(csv_file, low_memory=False)
     
     
     
-    readings = data['values']
+    readings = data['humidity']
     total_len = len(readings)
 
     # Identify anomalies based on the user-defined range 
@@ -78,7 +80,7 @@ def detect_anomalies():
     plt.grid(True)
 
     # Save the plot as an image
-    img_path = f"C:\\Users\\Sayak Chatterjee\\Desktop\\ADID\\client\\src\\img\\anomaly_plot.png"
+    img_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "client", "src", "img", "anomaly_plot.png")
     plt.savefig(img_path, format='png')
     plt.close()
 
